@@ -3,6 +3,7 @@ import Ember from 'ember';
 import AuthContext from '../authContext'
 
 export default BaseAuthenticator.extend({
+    session: Ember.inject.service(),
     restore(properties){
         return new Ember.RSVP.Promise(function(resolve, reject){
             if(!Ember.isEmpty(properties.user)){
@@ -22,6 +23,10 @@ export default BaseAuthenticator.extend({
         })
     },
     invalidate(){
-        AuthContext.logOut();
+        if(this.get('session').isAuthenticated){
+            this.get('session').get('store').clear();
+            AuthContext.logOut();
+        }
+        
     }
 })

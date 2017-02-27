@@ -4,13 +4,12 @@
             {{#if model}}
                 <ul class="nav nav-pills">
                     {{#if model.isAdmin}}
-                        {{#link-to "admin"}}
-                            Administrator dashboard
-                        {{/link-to}}
+                        <li>
+                            {{#link-to "admin"}}
+                                Administrator dashboard
+                            {{/link-to}}
+                        </li>
                     {{/if}}
-                    <li>
-                    
-                    </li>
                 <li>
                     {{#link-to "users"}}
                         Customers
@@ -25,16 +24,20 @@
             {{/if}}
         </div>
         <div class="actions pull-right">
-            
             <ul class="nav nav-pills">
+                {{#if model}}
                 <li class="text-primary" {{action "logout"}}>
-                    Logout
+                    <a href>
+                        Logout
+                    </a>
                 </li>
-                <li class="text-primary">
-                    {{#link-to "login"}}
-                        Login
-                    {{/link-to}}
-                </li>
+                {{else}}
+                    <li class="text-primary">
+                        {{#link-to "login"}}
+                            Login
+                        {{/link-to}}
+                    </li>
+                {{/if}}
             </ul> 
         </div>
     </div>
