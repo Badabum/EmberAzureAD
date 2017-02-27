@@ -24,9 +24,8 @@ export default BaseAuthenticator.extend({
     },
     invalidate(){
         if(this.get('session').isAuthenticated){
-            this.get('session').get('store').clear();
+            this.get('session.store').clear();
             AuthContext.logOut();
         }
-        
     }
 })
