@@ -1,5 +1,6 @@
 {
   "name": "azure-auth",
   "dependencies": {
+    "bootstrap":"latest"
   }
 }

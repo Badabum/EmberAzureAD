@@ -1,0 +1,16 @@
+<ul>
+    
+    {{#each model as |role|}}
+    <li>
+        <h3>{{role.name}}</h3>
+        <ul>
+            {{#each role.permissions as |permission|}}
+            <li>
+                {{permission}}
+            </li>
+            {{/each}}
+        </ul>
+    </li>
+        
+    {{/each}}
+</ul>

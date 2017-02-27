@@ -1,4 +1,10 @@
 /* jshint node: true */
+// let aadConfig = {
+//   tenant: 'e15b7c26-22f7-4733-b359-e9c8823e8108', 
+//   clientId: 'f331de18-121b-49a1-a676-c911a62f0489',
+//   postLogoutRedirectUri:'http://localhost:4200',
+//   cacheLocation:'localStorage'
+// }
 
 module.exports = function(environment) {
   var ENV = {
@@ -22,7 +28,6 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -45,6 +50,29 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
+  ENV.authConfigs = {
+    tenant:'ihorkorotenkogmail.onmicrosoft.com',
+    clientId:'b821c788-c2dd-4665-bb59-a5f90d678844',
+    postLogoutRedirectUri:'http://localhost:4200/',
+    redirectUri:'http://localhost:4200/',
+    cacheLocation:'localStorage',
+    navigateToLoginRequestUrl:false,
+    instance:''
+  }
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication:'users',
+    authorizer:'authorizer:azure',
+    crossOriginWhiteList:['*']
+  }
+  ENV['torii'] = {
+    providers:{
+      'azure-oauth2':{
+        apiKey:'f331de18-121b-49a1-a676-c911a62f0489',
+        state:12345,
+        redirectUri:'https://localhost:44306',
+        baseUrl:'https://login.microsoftonline.com/e15b7c26-22f7-4733-b359-e9c8823e8108/oauth2/authorize'
+      }
+    }
+  }
   return ENV;
 };

@@ -1,0 +1,22 @@
+<div class="users">
+    {{#each model as |customer|}}
+        <ul class="customers-list">
+            <li class="customer-info">
+                <div class="name">
+                    <h3 class="name">{{customer.name}}</h3>
+                </div>
+                <div class="vehicles">
+                    <h4>Cars</h4>
+                    {{#each customer.cars as |vehicle|}}
+                        <ul>
+                            <li>{{vehicle.type}}</li>
+                            <li>{{vehicle.model}}</li>
+                        </ul>
+                    {{/each}}
+
+                </div>
+            </li>
+        </ul>
+    {{/each}}
+    {{customer-form addCustomer="addCustomer"}}
+</div>
