@@ -3,6 +3,10 @@ Azure AD RBAC
 **RBAC - role-based access.**
 **AD - active directory**
 
+Tools used
+Ember-Simple-Auth - https://ember-simple-auth.com/
+ADAL.js - https://github.com/AzureAD/azure-activedirectory-library-for-js
+
 To restrict access to different parts of the API(or application) which uses Azure AD as an identity provider there are a couple of choices:
 1. Use new `appRoles` attribute available in application configuration file.
 2. Use `GraphAPI` to query authenticated user data from AD and write a custom logic which will parse user roles and permissions(permissions specific to AD)
